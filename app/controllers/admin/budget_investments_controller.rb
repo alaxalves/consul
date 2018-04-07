@@ -42,7 +42,7 @@ class Admin::BudgetInvestmentsController < Admin::BaseController
     if @investment.update(budget_investment_params)
       redirect_to admin_budget_budget_investment_path(@budget,
                                                       @investment,
-                                                      Budget::Investment.filter_params(params)),
+                                                      Budget::Investment.filter_params(params).to_h),
                   notice: t("flash.actions.update.budget_investment")
     else
       load_admins
@@ -121,7 +121,7 @@ class Admin::BudgetInvestmentsController < Admin::BaseController
     end
 
     def load_tags
-      @tags = Budget::Investment.tags_on(:valuation).order(:name).uniq
+      @tags = Budget::Investment.tags_on(:valuation).order(:name).distinct
     end
 
     def load_ballot
