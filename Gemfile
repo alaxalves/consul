@@ -68,6 +68,8 @@ gem 'browser'
 gem 'turnout', '~> 2.4.0'
 gem 'uglifier', '~> 4.1.2'
 gem 'unicorn', '~> 5.4.0'
+gem 'record_tag_helper', '~> 1.0'
+gem 'rb-readline'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-leaflet'
